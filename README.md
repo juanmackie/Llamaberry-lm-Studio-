@@ -1,4 +1,3 @@
-```
 # Multi-Turn Chain of Thought Reasoning with Synthesis
 
 This repository demonstrates multi-turn Chain of Thought (CoT) reasoning with a large language model (LLM). It generates multiple turns of reasoning for a given query, analyzes them, and synthesizes them into a comprehensive final answer. It uses a system prompt engineering approach to guide the LLM's reasoning process and provides a Gradio interface for interactive use.
@@ -16,14 +15,14 @@ This repository demonstrates multi-turn Chain of Thought (CoT) reasoning with a 
    - Python 3.6 or higher
    - `requests` library: `pip install requests`
    - `gradio` library: `pip install gradio`
-   - A working LLM API endpoint (e.g., OpenAI, Hugging Face)
+   - A working LLM API endpoint. By default the script targets a local [LM Studio](https://lmstudio.ai/) server at `http://localhost:1234/v1/chat/completions`.
 
 2. **Modify the Code:**
-   - Replace `api_url` with the URL of your LLM API endpoint.
+   - Replace `api_url` in `llamaberyy-lmstudio.py` with the URL of your LLM API endpoint.
    - Replace `model` with the name of the desired LLM model.
 
 3. **Run the Code:**
-   - Run the `main.py` file: `python main.py`
+   - Run the script: `python llamaberyy-lmstudio.py`
    - The Gradio interface will launch in your browser.
 
 4. **Interact with the Interface:**
@@ -57,5 +56,3 @@ Contributions are welcome! Please open an issue or submit a pull request.
 ## Acknowledgments
 
 This project is inspired by the work on Chain of Thought reasoning in the field of natural language processing.
-
-```

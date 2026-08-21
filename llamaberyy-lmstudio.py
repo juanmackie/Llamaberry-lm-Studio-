@@ -65,10 +65,16 @@ def call_llm(messages: list, temperature: float = 0.7, max_tokens: int = -1) -> 
         "Content-Type": "application/json"
     }
 
-    response = requests.post(api_url, headers=headers, data=json.dumps(payload))
+    try:
+        response = requests.post(api_url, headers=headers, data=json.dumps(payload))
+    except requests.RequestException as e:
+        return f"Error: request to {api_url} failed: {e}"
 
     if response.status_code == 200:
-        return response.json()['choices'][0]['message']['content']
+        try:
+            return response.json()['choices'][0]['message']['content']
+        except (ValueError, KeyError, IndexError, TypeError) as e:
+            return f"Error: unexpected response format from {api_url}: {e}"
     else:
         return f"Error: {response.status_code}, {response.text}"
 
